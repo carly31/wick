@@ -12,13 +12,13 @@
 			}, {
 				"name" : "pause()",
 				"description" : "Causes the playhead to stop playing. When called from inside a symbol, the parent of the symbol's playhead is stopped.",
-				"example" : "stop();",
+				"example" : "pause();",
 				"args" : [],
 				"return" : null
 			}, {
 				"name" : "movePlayheadTo(frame)",
 				"description" : "Moves the playhead to 'frame'. When called from inside a symbol, the parent of the symbol's timeline is moved.",
-				"example" : "// Go to frame 2\ngotoAndStop(2);\n// Go to 'menu'\ngotoAndStop('menu');",
+				"example" : "// Go to frame 2\nmovePlayheadTo(2);\n// Go to 'menu'\nmovePlayheadTo('menu');",
 				"args" : [{"name": "frame", "type": "Number", "description": "position to move the playhead to"}],
 				"return" : null
 			}, {
@@ -97,17 +97,16 @@
 				"example" : "// Move the symbol which ran this script to the right by one pixel\nthis.x += 1;",
 				"args" : [],
 				"return" : null
-
 			}, {
 				"name" : "root",
 				"description" : "Refers to the 'root' object. The root object contains all other objects. The root object has no parent and holds the 'root' timeline which controls the main information being shown. The keyword root can be used in any script.",
-				"example" : "// Moves the playhead on the root timeline to frame 2 and stops the root timeline\nroot.gotoAndStop(2);",
+				"example" : "// Moves the playhead on the root timeline to frame 2 and stops the root timeline\nroot.movePlayheadTo(2);",
 				"args" : [],
 				"return" : null
 			}, {
 				"name" : "parent",
 				"description" : "Refers to the parent of the object which uses the 'parent' keyword in a script. 'parent' can be used to access the parent object's timeline, or other objects contained within the parent.",
-				"example" : "// Moves the playhead on the parent obect's timeline to frame 2 and plays that timeline\nparent.gotoAndPlay(2);",
+				"example" : "// Moves the playhead on the parent obect's timeline to frame 2 and plays that timeline\nparent.movePlayheadTo(2);",
 				"args" : [], 
 				"return" : null
 			}
@@ -254,31 +253,16 @@
 				"return" : null,
 				"args" : []
 			}, {
-				"name" : "stop()",
+				"name" : "pause()",
 				"description" : "Stops the symbol's timeline. Refer to the general timeline documentation for stop() for further information.",
-				"example" : "this.stop();",
+				"example" : "this.pause();",
 				"return" : null,
 				"args" : []
 			}, {
-				"name" : "gotoAndStop(frame)",
-				"description" : "Moves the playhead of the symbol's timeline to 'frame' and stops that timeline. Refer to the general timeline documentation for gotoAndStop(frame) for further information.",
-				"example" : "this.gotoAndStop(2);",
+				"name" : "movePlayheadTo(frame)",
+				"description" : "Moves the playhead of the symbol's timeline to 'frame' and stops that timeline. Refer to the general timeline documentation for movePlayheadTo(frame) for further information.",
+				"example" : "this.movePlayheadTo(2);",
 				"args" : [{"name": "frame", "type": "Number", "description": "frame number or name to jump to"}]
-			}, {
-				"name" : "gotoAndPlay(frame)",
-				"description" : "Moves the playhead of the symbol's timeline to 'frame' and stops that timeline. Refer to the general timeline documentation for gotoAndPlay(frame) for further information.",
-				"example" : "this.gotoAndPlay(2);",
-				"args" : [{"name": "frame", "type": "Number", "description": "frame number or name to jump to"}]
-			}, {
-				"name" : "gotoNextFrame()",
-				"description" : "Goes to the next frame on this symbol's timeline. Refer to the general timeline documentation for gotoNextFrame() for further information.",
-				"example" : "this.gotoNextFrame();",
-				"args" : []
-			}, {
-				"name" : "gotoPrevFrame()",
-				"description" : "Goes to the previous frame on this symbol's timeline. Refer to the general timeline documentation for gotoPrevFrame() for further information.",
-				"example" : "this.gotoPrevFrame();",
-				"args" : []
 			}
 		]
 	}, {
@@ -293,7 +277,7 @@
 			}, {
 				"name" : "random.integer(min, max)",
 				"description" : "Generates a random whole number from min to max.",
-				"example" : "// Use random.integer() to move to a random frame from 1-10.\nvar randomFrame = random(integer(1,10));\ngotoAndStop(randomFrame);",
+				"example" : "// Use random.integer() to move to a random frame from 1-10.\nvar randomFrame = random(integer(1,10));\nmovePlayheadTo(randomFrame);",
 				"return" : {"type": "Number", "description": "A random whole number."},
 				"args" : []
 			}, {
